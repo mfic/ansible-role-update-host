@@ -76,6 +76,7 @@
     test_command: whoami
   when: reboot_required.stat.exists
   tags:
+    - never
     - reboot
 
 - name: Wait for server to come back online after reboot
@@ -83,6 +84,7 @@
     delay: 30
   when: reboot_required.stat.exists
   tags:
+    - never
     - reboot
 
 - name: Send Discord notification after reboot is completed
@@ -99,4 +101,5 @@
     status_code: [200, 204]
   when: reboot_required.stat.exists
   tags:
+    - never
     - reboot
